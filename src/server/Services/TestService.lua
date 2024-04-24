@@ -4,7 +4,7 @@ local Knit = require(ReplicatedStorage.Packages.Knit)
 local TestService = Knit.CreateService { Name = "TestService" }
 
 function TestService:KnitInit()
-
+  print("Service init")
 end
 
 function TestService:KnitStart()
