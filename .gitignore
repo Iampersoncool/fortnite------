@@ -1,4 +1,5 @@
 # Project place file
+/fortnite.rbxl
 /fortnite.rbxlx
 /Packages
 
@@ -8,6 +9,9 @@
 
 # Wally
 wally.lock
+
+#aftman
+/.aftman
 
 # not ready yet
 # .github
