@@ -1,5 +1,9 @@
 on: [push]
 
+env:
+  ROBLOSECURITY: ${{ secrets.ROBLOSECURITY }}
+  REMODEL_AUTH: ${{ secrets.ROBLOSECURITY }}
+
 jobs:
   deploy-game:
     runs-on: windows-latest
@@ -17,14 +21,11 @@ jobs:
         shell: bash
         run: wally install
 
-      - name: Set env variables
-        shell: bash
-        env:
-          ROBLOSECURITY: ${{ secrets.ROBLOSECURITY }}
-          REMODEL_AUTH: ${{ secrets.ROBLOSECURITY }}
-        # run: |
-        #   ROBLOSECURITY=${{ secrets.ROBLOSECURITY }} >> $GITHUB_ENV
-        #   REMODEL_AUTH=${{ secrets.ROBLOSECURITY }} >> $GITHUB_ENV
+      # - name: Set env variables
+      #   shell: bash
+      #   run: |
+      #     ROBLOSECURITY=${{ secrets.ROBLOSECURITY }} >> $GITHUB_ENV
+      #     REMODEL_AUTH=${{ secrets.ROBLOSECURITY }} >> $GITHUB_ENV
 
       - name: Run lune scripts and build rojo
         shell: bash
