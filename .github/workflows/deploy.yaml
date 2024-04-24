@@ -26,7 +26,7 @@ jobs:
 
       - name: Build rojo place file
         shell: bash
-        run: rojo build default.project.json -o deployment/build.rbxl
+        run: rojo build default.project.json -o build.rbxl
 
       - name: Pull in assets
         shell: bash
