@@ -2,6 +2,9 @@ on: [push]
 
 env:
   ROBLOSECURITY: ${{ secrets.ROBLOSECURITY }}
+  RBXCLOUDAPI_KEY: ${{ secrets.RBXCLOUDAPI_KEY }}
+  UNIVERSE_ID: '5904744525'
+  START_PLACE_ID: '17260500381'
 
 jobs:
   deploy-game:
@@ -20,11 +23,15 @@ jobs:
         shell: bash
         run: wally install
 
-      - name: Run lune scripts and build rojo
+      - name: Build rojo place file
+        shell: bash
+        run: rojo build default.project.json -o build.rbxlx
+
+      - name: Pull in assets using lune
+        shell: bash
+        run: lune run deploy.luau
+
+      - name: Deploy place file to roblox
         shell: bash
         run: |
-          rojo build default.project.json -o build.rbxlx
-          lune run deploy.luau
-
-      - name: Final check
-        run: ls
+          curl --verbose --location POST 'https://apis.roblox.com/universes/v1/$UNIVERSE_ID/places/$START_PLACE_ID/versions?versionType=Published' --header 'x-api-key: $RBXCLOUDAPI_KEY' --header 'Content-Type: application/xml' --data-binary build.rbxlx
