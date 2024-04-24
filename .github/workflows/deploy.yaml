@@ -1,0 +1,11 @@
+name: Deploy game
+
+on: [push]
+jobs:
+  deploy-game:
+    name: Deploy game
+    runs-on: windows-latest
+    steps:
+      - uses: ok-nick/setup-aftman@v0.4.2
+        with:
+          token: ${{ github.token }}

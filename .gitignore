@@ -1,0 +1,13 @@
+# Project place file
+/fortnite.rbxlx
+/Packages
+
+# Roblox Studio lock files
+/*.rbxlx.lock
+/*.rbxl.lock
+
+# Wally
+wally.lock
+
+# not ready yet
+# .github
