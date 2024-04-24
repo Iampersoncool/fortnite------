@@ -34,4 +34,4 @@ jobs:
       - name: Deploy place file to roblox
         shell: bash
         run: |
-          curl --verbose --location POST 'https://apis.roblox.com/universes/v1/${{ env.UNIVERSE_ID }}/places/${{ env.START_PLACE_ID }}/versions?versionType=Published' --header 'x-api-key: $RBXCLOUDAPI_KEY' --header 'Content-Type: application/xml' --data-binary build.rbxlx
+          curl --verbose --location POST 'https://apis.roblox.com/universes/v1/${{ env.UNIVERSE_ID }}/places/${{ env.START_PLACE_ID }}/versions?versionType=Published' --header 'x-api-key: ${{ env.RBXCLOUDAPI_KEY }}' --header 'Content-Type: application/xml' --data-binary build.rbxlx
