@@ -1,5 +1,7 @@
-# Project place file
-/build.*
+# Development rbxl/rbxlx files
+*.rbxl
+*.rbxlx
+
 /Packages
 
 # Roblox Studio lock files
@@ -11,6 +13,3 @@ wally.lock
 
 #aftman
 /.aftman
-
-# not ready yet
-# .github
