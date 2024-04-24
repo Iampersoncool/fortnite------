@@ -17,10 +17,16 @@ jobs:
         shell: bash
         run: wally install
 
-      - name: Run lune scripts
+      - name: Set env variables
         shell: bash
         run: |
-          rojo build default.project.json -o build.rbxl
+          ROBLOSECURITY=${{ secrets.ROBLOSECURITY }} >> $GITHUB_ENV
+          REMODEL_AUTH=${{ secrets.ROBLOSECURITY }} >> $GITHUB_ENV
+
+      - name: Run lune scripts and build rojo
+        shell: bash
+        run: |
+          rojo build default.project.json -o build.rbxlx
           lune run deploy.luau
 
       - name: Final check
