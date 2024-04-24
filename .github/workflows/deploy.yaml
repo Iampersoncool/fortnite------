@@ -27,11 +27,6 @@ jobs:
         shell: bash
         run: rojo build default.project.json -o build.rbxl
 
-      - name: Pull in assets using lune
+      - name: Pull in assets using lune and deploy to roblox
         shell: bash
         run: lune run deploy.luau
-
-      - name: Deploy place file to roblox
-        shell: bash
-        run: |
-          curl --verbose --location POST 'https://apis.roblox.com/universes/v1/${{ env.UNIVERSE_ID }}/places/${{ env.START_PLACE_ID }}/versions?versionType=Published' --header 'x-api-key: ${{ env.RBXCLOUDAPI_KEY }}' --header 'Content-Type: application/octet-stream' --data-binary "build.rbxl"
