@@ -1,7 +1,7 @@
 local remodel = require("./remodel.luau")
 
 local gameWithAssets = remodel.readPlaceAsset(17260570236)
-local gameWithScripts = remodel.readPlaceFile("build.rbxl")
+local gameWithScripts = remodel.readPlaceFile("build.rbxlx")
 
 local services = { "ReplicatedStorage", "ServerStorage", "Lighting", "StarterGui", "StarterPack" }
 
