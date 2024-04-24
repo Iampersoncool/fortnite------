@@ -12,7 +12,6 @@ jobs:
         uses: ok-nick/setup-aftman@v0.4.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          version: 'v0.2.7'
 
       - name: Package installation
         shell: bash
