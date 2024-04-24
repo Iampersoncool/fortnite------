@@ -5,6 +5,7 @@ env:
   RBXCLOUDAPI_KEY: ${{ secrets.RBXCLOUDAPI_KEY }}
   UNIVERSE_ID: '5904744525'
   START_PLACE_ID: '17260500381'
+  ASSET_PLACE_ID: '17260570236'
 
 jobs:
   deploy-game:
@@ -27,6 +28,10 @@ jobs:
         shell: bash
         run: rojo build default.project.json -o build.rbxl
 
-      - name: Pull in assets using lune and deploy to roblox
+      - name: Pull in assets
         shell: bash
-        run: lune run deploy.luau
+        run: lune run PullInAssets.luau
+
+      - name: Deploy game
+        shell: bash
+        run: lune run Deploy.luau
