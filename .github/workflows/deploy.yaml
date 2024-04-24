@@ -26,12 +26,12 @@ jobs:
 
       - name: Build rojo place file
         shell: bash
-        run: rojo build default.project.json -o build.rbxl
+        run: rojo build default.project.json -o deployment/build.rbxl
 
       - name: Pull in assets
         shell: bash
-        run: lune run PullInAssets.luau
+        run: lune run deployment/PullInAssets.luau
 
       - name: Deploy game
         shell: bash
-        run: lune run Deploy.luau
+        run: lune run deployment/Deploy.luau
