@@ -2,7 +2,6 @@ on: [push]
 
 env:
   ROBLOSECURITY: ${{ secrets.ROBLOSECURITY }}
-  REMODEL_AUTH: ${{ secrets.ROBLOSECURITY }}
 
 jobs:
   deploy-game:
